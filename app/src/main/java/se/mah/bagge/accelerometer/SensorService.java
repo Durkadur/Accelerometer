@@ -7,15 +7,11 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
+import android.util.Log;
 
 public class SensorService extends Service implements SensorEventListener {
     private static final String DEBUG_TAG = "SensorService";
     private long lastUpdate;
-
-    public int getCounter() {
-        return counter;
-    }
-
     private float last_x, last_y, last_z;
     private static final int SHAKE_THRESHOLD = 500;
     private int counter = 0;
@@ -36,7 +32,6 @@ public class SensorService extends Service implements SensorEventListener {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -62,6 +57,7 @@ public class SensorService extends Service implements SensorEventListener {
 
                 if (speed > SHAKE_THRESHOLD) {
                     counter++;
+                    Log.i("counter", Integer.toString(counter));
                 }
                 last_x = x;
                 last_y = y;
@@ -69,8 +65,8 @@ public class SensorService extends Service implements SensorEventListener {
             }
         }
 //        new SensorEventLoggerTask().execute(event);
-        sensorManager.unregisterListener(this);
-        stopSelf();
+//        sensorManager.unregisterListener(this);
+//        stopSelf();
     }
 
 //    private class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void> {
@@ -79,4 +75,8 @@ public class SensorService extends Service implements SensorEventListener {
 //            SensorEvent event = events[0];
 //        }
 //    }
+
+    public int getCounter() {
+        return counter;
+    }
 }
