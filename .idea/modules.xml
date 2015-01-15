@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Accelerometer.iml" filepath="$PROJECT_DIR$/Accelerometer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fanmode.iml" filepath="$PROJECT_DIR$/Fanmode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fanmode Test App.iml" filepath="$PROJECT_DIR$/Fanmode Test App.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

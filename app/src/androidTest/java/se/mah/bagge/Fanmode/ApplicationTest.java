@@ -1,4 +1,4 @@
-package se.mah.bagge.accelerometer;
+package se.mah.bagge.Fanmode;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
