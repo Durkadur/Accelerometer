@@ -14,7 +14,7 @@ public class SensorService extends Service implements SensorEventListener {
     private long lastUpdate;
     private float last_x, last_y, last_z;
     private static final int SHAKE_THRESHOLD = 500;
-    private int counter = 0;
+    private static int counter = 0;
     private SensorManager sensorManager = null;
     private Sensor sensor = null;
 
@@ -23,8 +23,6 @@ public class SensorService extends Service implements SensorEventListener {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(this, sensor , SensorManager.SENSOR_DELAY_NORMAL);
-
-
         return START_STICKY;
     }
 
@@ -64,19 +62,8 @@ public class SensorService extends Service implements SensorEventListener {
                 last_z = z;
             }
         }
-//        new SensorEventLoggerTask().execute(event);
-//        sensorManager.unregisterListener(this);
-//        stopSelf();
     }
-
-//    private class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void> {
-//        @Override
-//        protected Void doInBackground(SensorEvent... events) {
-//            SensorEvent event = events[0];
-//        }
-//    }
-
-    public int getCounter() {
+    public static int getCounter() {
         return counter;
     }
 }
